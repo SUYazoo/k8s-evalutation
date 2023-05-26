@@ -9,28 +9,28 @@
 
 
 ```bash
-kubectl apply -f kebe-redis-deployment.yaml
-kubectl apply -f kebe-node-redis-deployment.yaml
+$ kubectl apply -f kebe-redis-deployment.yaml
+$ kubectl apply -f kebe-node-redis-deployment.yaml
 
 
-kubectl apply -f kebe-node-redis-pod.yaml
+$ kubectl apply -f kebe-node-redis-pod.yaml
 
-kubectl apply -f kebe-redis-service.yaml
-kubectl apply -f kebe-node-redis-service.yaml
+$ kubectl apply -f kebe-redis-service.yaml
+$ kubectl apply -f kebe-node-redis-service.yaml
 ```
 
 ## Verifications :
 
 ### Deploiements
 ```bash
-kubectl get deployments | grep "kebe"
+$ kubectl get deployments | grep "kebe"
 kebe-node-redis          4/4     4            4           
 kebe-redis               1/1     1            1           
 ```
 
 ### Services 
 ```bash
-kubectl get services | grep "kebe"
+$ kubectl get services | grep "kebe"
 kebe-node-redis-service       LoadBalancer   10.3.127.140   141.95.163.93    5000:30007/TCP   
 kebe-redis-service            LoadBalancer   10.3.137.190   141.95.163.59    6379:30822/TCP   
 ```
