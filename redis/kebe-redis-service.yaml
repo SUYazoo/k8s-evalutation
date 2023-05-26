@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kebe-redis-service
+spec:
+  selector:
+    app: kebe-redis
+  ports:
+  - port: 6379
+    targetPort: 6379
+  type: LoadBalancer
+  
+---
+

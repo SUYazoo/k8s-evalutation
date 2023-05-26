@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kebe-redis
+  labels:
+    app: kebe-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kebe-redis
+  template:
+    metadata:
+      labels:
+        app: kebe-redis
+    spec:
+      containers:
+        - name: kebe-redis
+          image: redis
+          ports:
+            - containerPort: 6379
