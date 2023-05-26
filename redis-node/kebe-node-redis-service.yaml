@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kebe-node-redis-service
+spec:
+  selector:
+    app: kebe-node-redis
+  ports:
+    - port: 5000
+      targetPort: 5000
+  type: LoadBalancer

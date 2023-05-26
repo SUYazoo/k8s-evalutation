@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kebe-node-redis
+  labels:
+    purpose: kebe-node-redis
+    app: kebe-node-redis
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: kebe-node-redis
+  template:
+    metadata:
+      labels:
+        app: kebe-node-redis
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: kebe-node-redis
+          image: cloud.canister.io:5000/arhturescriou/node-redis
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:        
+            - name: PORT
+              value: '5000'
+            - name: REDIS_URL
+              value: 'redis://kebe-redis-service:6379'

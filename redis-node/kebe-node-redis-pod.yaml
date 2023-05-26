@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kebe-node-redis
+  labels:
+    purpose: kebe-node-redis
+    app: kebe-node-redis
+spec:
+  imagePullSecrets:
+    - name: regcred
+  containers:
+    - name: kebe-node-redis
+      image: cloud.canister.io:5000/arhturescriou/node-redis
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: PORT
+          value: '6379'
+        - name: REDIS_URL
+          value: 'redis://10.3.87.136:6379'
